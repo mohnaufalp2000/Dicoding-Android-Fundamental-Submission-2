@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="search_for_user">Search for User</string>
+    <string name="search_icon_description">This is a Search Icon</string>
+    <string name="delete_icon">This is for delete text</string>
+    <string name="name">name</string>
+    <string name="repository_title">Repository</string>
+    <string name="followers_title">Followers</string>
+    <string name="number_dummy">0</string>
+    <string name="search_description">This is a search</string>
+
+
+</resources>
