@@ -9,10 +9,6 @@ import retrofit2.http.Query
 
 interface UserService {
 
-    @GET("users")
-    @Headers("Authorization: token 373b6c1ce989e8531edbe986a3ee83cf3130ffed")
-    fun getDataUser() : Call<List<ItemsItem>>
-
     @GET("search/users")
     @Headers("Authorization: token 373b6c1ce989e8531edbe986a3ee83cf3130ffed")
     fun searchDataUser( @Query("q") name : String) : Call<User>

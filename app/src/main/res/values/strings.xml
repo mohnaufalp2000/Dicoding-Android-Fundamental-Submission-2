@@ -8,6 +8,9 @@
     <string name="followers_title">Followers</string>
     <string name="number_dummy">0</string>
     <string name="search_description">This is a search</string>
+    <string name="find_user">Find User</string>
+    <string name="find_detail_title">Use search icon in toolbar to find a user</string>
+    <string name="find_gif_content">This is a find image in background apps</string>
 
 
 </resources>
