@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.naufal.aplikasigithubuser2.databinding.ListUserBinding
 import com.naufal.aplikasigithubuser2.view.model.ItemsItem
 
-class AdapterUser(private val list : List<ItemsItem?>?) : RecyclerView.Adapter<AdapterUser.ViewHolder>() {
+class AdapterUser(private val list : ArrayList<ItemsItem?>?) : RecyclerView.Adapter<AdapterUser.ViewHolder>() {
 
 
     class ViewHolder(val binding : ListUserBinding) : RecyclerView.ViewHolder(binding.root)

@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import com.naufal.aplikasigithubuser2.view.model.ItemsItem
 import com.naufal.aplikasigithubuser2.view.model.User
 import com.naufal.aplikasigithubuser2.view.network.ConfigNetwork
 import com.naufal.aplikasigithubuser2.view.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +26,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel by lazy {ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)}
     private var adapter = AdapterUser(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
-        showRecyclerview()
+        showRecylerView()
+        getSearchList()
 
     }
 
@@ -47,52 +49,49 @@ class MainActivity : AppCompatActivity() {
         searchView.queryHint = "Search"
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
-                ConfigNetwork.getUser().searchDataUser(query).enqueue(object : Callback<User>{
-                    override fun onResponse(call: Call<User>, response: Response<User>) {
-                        if (response.isSuccessful){
-                            val body = response.body()?.items
-                            val listSearch : ArrayList<ItemsItem?> = arrayListOf()
-
-                            if (body != null){
-                                for (items in body){
-                                    listSearch.add(items)
-                                }
-                            }
-                            binding.rvUser.layoutManager = LinearLayoutManager(this@MainActivity)
-                            binding.rvUser.setHasFixedSize(true)
-                            adapter = AdapterUser(listSearch)
-                            binding.rvUser.adapter = adapter
-                        }
-                    }
-
-                    override fun onFailure(call: Call<User>, t: Throwable) {
-
-                    }
-
-                })
+                binding.apply {
+                    progressBar.visibility = View.VISIBLE
+                    findImageMain.visibility = View.GONE
+                    textViewFindUser.visibility = View.GONE
+                    textViewFindDetail.visibility = View.GONE
+                }
+                mainViewModel.searchViewModelUser(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
-
         })
+
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun showRecyclerview() {
+    private fun showRecylerView() {
         binding.rvUser.layoutManager = LinearLayoutManager(this@MainActivity)
         binding.rvUser.setHasFixedSize(true)
+    }
 
-        mainViewModel.getViewModelUser().observe(this, {
+    private fun getSearchList() {
+        mainViewModel.getSearchUser().observe(this@MainActivity, {
+            binding.apply {
+                progressBar.visibility = View.GONE
+                findImageMain.visibility = View.GONE
+                textViewFindUser.visibility = View.GONE
+                textViewFindDetail.visibility = View.GONE
+            }
             if (it != null){
                 adapter = AdapterUser(it)
                 binding.rvUser.adapter = adapter
             }
         })
-
     }
+
+
+
+
+
+
 }
 
 

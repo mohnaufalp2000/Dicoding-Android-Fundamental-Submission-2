@@ -11,7 +11,7 @@ data class User(
 	val incompleteResults: Boolean? = null,
 
 	@field:SerializedName("items")
-	val items: List<ItemsItem?>? = null
+	val items: ArrayList<ItemsItem?>? = null
 )
 
 
