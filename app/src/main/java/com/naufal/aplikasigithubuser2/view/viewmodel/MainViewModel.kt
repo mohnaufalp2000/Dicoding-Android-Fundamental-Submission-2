@@ -1,11 +1,9 @@
 package com.naufal.aplikasigithubuser2.view.viewmodel
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.naufal.aplikasigithubuser2.view.adapter.AdapterUser
+import com.naufal.aplikasigithubuser2.view.model.DetailUser
 import com.naufal.aplikasigithubuser2.view.model.ItemsItem
 import com.naufal.aplikasigithubuser2.view.model.User
 import com.naufal.aplikasigithubuser2.view.network.ConfigNetwork
@@ -18,6 +16,7 @@ import retrofit2.Response
 class MainViewModel : ViewModel() {
 
     val listSearchUser = MutableLiveData<ArrayList<ItemsItem?>?>()
+    val listDetailUser = MutableLiveData<DetailUser?>()
 
 
     fun searchViewModelUser(username : String) {
@@ -43,8 +42,39 @@ class MainViewModel : ViewModel() {
 
     }
 
-    fun getSearchUser() : LiveData<ArrayList<ItemsItem?>?>{
+    fun detailViewModelUser(username : String?){
+        ConfigNetwork.getUser().getDetailUser(username).enqueue(object : Callback<DetailUser>{
+            override fun onResponse(call: Call<DetailUser>, response: Response<DetailUser>) {
+                val body = response.body()
+                val user = DetailUser(
+                        name = body?.name,
+                        login = body?.login,
+                        avatarUrl = body?.avatarUrl,
+                        followers = body?.followers,
+                        following = body?.following,
+                        publicRepos = body?.publicRepos,
+                        location = body?.location,
+                        company = body?.company,
+                        reposUrl = body?.reposUrl
+                )
+
+                listDetailUser.postValue(user)
+            }
+
+            override fun onFailure(call: Call<DetailUser>, t: Throwable) {
+
+            }
+
+
+        })
+    }
+
+    fun getViewModelSearchUser() : LiveData<ArrayList<ItemsItem?>?>{
         return listSearchUser
+    }
+
+    fun getViewModelDetailUser() : LiveData<DetailUser?>{
+        return listDetailUser
     }
 
 

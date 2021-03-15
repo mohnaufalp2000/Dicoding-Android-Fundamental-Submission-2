@@ -1,4 +1,4 @@
-package com.naufal.aplikasigithubuser2.view
+package com.naufal.aplikasigithubuser2.view.view
 
 import android.app.SearchManager
 import android.content.Context
@@ -14,13 +14,8 @@ import com.naufal.aplikasigithubuser2.R
 import com.naufal.aplikasigithubuser2.databinding.ActivityMainBinding
 import com.naufal.aplikasigithubuser2.view.adapter.AdapterUser
 import com.naufal.aplikasigithubuser2.view.model.ItemsItem
-import com.naufal.aplikasigithubuser2.view.model.User
-import com.naufal.aplikasigithubuser2.view.network.ConfigNetwork
 import com.naufal.aplikasigithubuser2.view.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -73,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getSearchList() {
-        mainViewModel.getSearchUser().observe(this@MainActivity, {
+        mainViewModel.getViewModelSearchUser().observe(this@MainActivity, {
             binding.apply {
                 progressBar.visibility = View.GONE
                 findImageMain.visibility = View.GONE
