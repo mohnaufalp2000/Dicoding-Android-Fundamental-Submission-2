@@ -10,15 +10,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AplikasiGithubUser2">
-        <activity android:name=".view.MainActivity">
+        android:theme="@style/Theme.AplikasiGithubUser2"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".view.view.SplashActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.view.DetailActivity" />
+        <activity android:name=".view.view.MainActivity"/>
     </application>
 
 </manifest>

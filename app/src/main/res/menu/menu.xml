@@ -5,9 +5,18 @@
     <item
         android:id="@+id/search_view"
         android:title="@string/search_for_user"
-        app:showAsAction="collapseActionView|always"
+        app:showAsAction="collapseActionView|ifRoom"
         android:contentDescription="@string/search_description"
         android:icon="@drawable/ic_baseline_search_24"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/action_change_settings"
+        android:title="@string/change_language_settings"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_language_24"
+        android:contentDescription="@string/settings_content"
+        />
+
 
 </menu>

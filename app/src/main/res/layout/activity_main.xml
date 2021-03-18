@@ -2,11 +2,11 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGithub"
-    tools:context=".view.MainActivity">
-
+    android:background="@color/white"
+    tools:context=".view.view.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_user"
@@ -14,7 +14,54 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/list_user"/>
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:contentDescription="@string/find_gif_content"
+        android:id="@+id/find_image_main"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/find"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/text_view_find_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_user"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="350dp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/text_view_find_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_detail_title"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center"
+        />
+
+
+
+
+
+
 
 
 
