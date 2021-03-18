@@ -1,29 +1,36 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Github User</string>
-    <string name="search_for_user">Search for User</string>
-    <string name="search_icon_description">This is a Search Icon</string>
-    <string name="delete_icon">This is for delete text</string>
+    <string name="search_for_user">Search</string>
     <string name="name">name</string>
     <string name="number_dummy">0</string>
-    <string name="search_description">This is a search</string>
     <string name="find_user">Find User</string>
     <string name="find_detail_title">Use search icon in toolbar to find a user</string>
-    <string name="find_gif_content">This is a find image in background apps</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="username">username</string>
-    <string name="img_profile_content">This is a image profile</string>
     <string name="followers">Followers</string>
     <string name="followings">Followings</string>
     <string name="repository">Repository</string>
     <string name="user">User</string>
-    <string name="location_icon_content">This is a location icon</string>
     <string name="divider_dots">:</string>
-    <string name="company_icon_content">This is a company icon</string>
     <string name="location">location</string>
     <string name="company">company</string>
     <string name="repo_link">repo_link</string>
+    <string name="connection_failed_desc">Connection Failed.\nPlease check and try again.</string>
+    <string name="change_language_settings">Change Language Settings</string>
+
+    <!--Content Description-->
+    <string name="find_gif_content">This is a find image in background apps</string>
+    <string name="search_description">This is a search icon</string>
+    <string name="img_profile_content">This is a image profile</string>
+    <string name="location_icon_content">This is a location icon</string>
+    <string name="company_icon_content">This is a company icon</string>
+    <string name="repository_icon_content">This is a repository icon</string>
+    <string name="settings_content">This is a settings icon</string>
+    <string name="search_icon_description">This is a Search Icon</string>
+    <string name="delete_icon">This is for delete text</string>
+    <string name="splash_screen_content">This is splash screen image</string>
 
 
 </resources>

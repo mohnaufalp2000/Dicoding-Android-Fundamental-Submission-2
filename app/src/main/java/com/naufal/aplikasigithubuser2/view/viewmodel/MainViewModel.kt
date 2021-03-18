@@ -1,13 +1,15 @@
 package com.naufal.aplikasigithubuser2.view.viewmodel
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.naufal.aplikasigithubuser2.R
 import com.naufal.aplikasigithubuser2.view.model.DetailUser
 import com.naufal.aplikasigithubuser2.view.model.ItemsItem
 import com.naufal.aplikasigithubuser2.view.model.User
 import com.naufal.aplikasigithubuser2.view.network.ConfigNetwork
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,31 +17,28 @@ import retrofit2.Response
 
 class MainViewModel : ViewModel() {
 
-    val listSearchUser = MutableLiveData<ArrayList<ItemsItem?>?>()
-    val listDetailUser = MutableLiveData<DetailUser?>()
+    private val listSearchUser = MutableLiveData<ArrayList<ItemsItem?>?>()
+    private val listDetailUser = MutableLiveData<DetailUser?>()
 
 
-    fun searchViewModelUser(username : String) {
+    fun searchViewModelUser(username : String, context: Context) {
         ConfigNetwork.getUser().searchDataUser(username).enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                if (response.isSuccessful){
                     val body = response.body()?.items
-                    val listSearch : ArrayList<ItemsItem?> = arrayListOf()
-                    if (body != null){
-                        for (items in body){
-                            listSearch.add(items)
-                        }
-                    }
-                    listSearchUser.postValue(listSearch)
-                }
+
+                    listSearchUser.postValue(body)
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-
+                Toast.makeText(context, R.string.connection_failed_desc, Toast.LENGTH_LONG).show()
             }
 
         })
 
+    }
+
+    fun getViewModelSearchUser() : LiveData<ArrayList<ItemsItem?>?>{
+        return listSearchUser
     }
 
     fun detailViewModelUser(username : String?){
@@ -64,13 +63,7 @@ class MainViewModel : ViewModel() {
             override fun onFailure(call: Call<DetailUser>, t: Throwable) {
 
             }
-
-
         })
-    }
-
-    fun getViewModelSearchUser() : LiveData<ArrayList<ItemsItem?>?>{
-        return listSearchUser
     }
 
     fun getViewModelDetailUser() : LiveData<DetailUser?>{

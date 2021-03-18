@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Github User</string>
+    <string name="search_for_user">Cari</string>
+    <string name="name">nama</string>
+    <string name="number_dummy">0</string>
+    <string name="find_user">Cari pengguna</string>
+    <string name="find_detail_title">Gunakan icon cari di toolbar untuk mencari pengguna</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="username">username</string>
+    <string name="followers">Pengikut</string>
+    <string name="followings">Mengikuti</string>
+    <string name="repository">Repository</string>
+    <string name="user">Pengguna</string>
+    <string name="divider_dots">:</string>
+    <string name="location">lokasi</string>
+    <string name="company">perusahaan</string>
+    <string name="repo_link">tautan repo</string>
+    <string name="connection_failed_desc">Koneksi gagal.\nSilahkan cek dan coba lagi.</string>
+    <string name="change_language_settings">Ubah pengaturan bahasa</string>
+
+    <!--Content Description-->
+    <string name="find_gif_content">Ini adalah gambar cari user di latar belakang</string>
+    <string name="search_description">Ini adalah ikon cari</string>
+    <string name="img_profile_content">Ini adalah gambar profil</string>
+    <string name="location_icon_content">Ini adalah ikon lokasi</string>
+    <string name="company_icon_content">Ini adalah ikon perusahaan</string>
+    <string name="repository_icon_content">Ini adalah ikon repository</string>
+    <string name="settings_content">Ini adalah ikon pengaturan</string>
+    <string name="search_icon_description">Ini adalah icon cari</string>
+    <string name="delete_icon">Ini adalah icon hapus</string>
+    <string name="splash_screen_content">Ini adalah gambar splash screen</string>
+
+</resources>

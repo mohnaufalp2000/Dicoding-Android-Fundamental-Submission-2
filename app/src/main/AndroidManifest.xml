@@ -12,14 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiGithubUser2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.view.DetailActivity"></activity>
-        <activity android:name=".view.view.MainActivity">
+        <activity android:name=".view.view.SplashActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.view.DetailActivity" />
+        <activity android:name=".view.view.MainActivity"/>
     </application>
 
 </manifest>
